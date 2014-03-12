@@ -1,0 +1,20 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(src='/scripts/jquery-2.1.0.min.js')
+		script(src='/scripts/bootstrap.min.js')
+	body
+		nav.navbar.navbar-inverse
+			.container-fluid
+				.navbar-header
+					a.navbar-brand(href="#") Application Name Here
+
+				ul.nav.navbar-nav
+					li.active: a(href="#") Link 1
+					li: a(href="#") Link 2
+					li: a(href="#") Link 3
+					li: a(href="#") Link 4
+
+		block content
