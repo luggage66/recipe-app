@@ -12,7 +12,8 @@ module.exports = (grunt) ->
 				dest: 'lib/'
 				ext: '.js'
 		express:
-			options: {}
+			options:
+			    port: process.env.PORT or 3000
 			dev:
 				options:
 					script: 'lib/startup.js'
