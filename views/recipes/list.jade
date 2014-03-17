@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+	.container
+		a(href='/recipes/create') New Recipe
+		ul
+			for recipe in recipes
+				li: a(href='/recipes/' + recipe.id)= recipe.name
