@@ -3,8 +3,14 @@ extends ../layout
 block content
 	.container
 		
-		label Name
-		p= recipe.name
+		h1
+			= recipe.name
+			small= ' by ' + recipe.author
 
-		label Author
-		p= recipe.author
+		ul.ingredients
+			for i in recipe.ingredients || []
+				li= (i.volume || i.weight) + ' - ' + i.ingredient
+
+		ol.instructions
+			for i in recipe.instructions || []
+				li= i

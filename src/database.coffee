@@ -6,7 +6,8 @@ mongoose.connect config.databaseConnectionString
 exports.Recipe = mongoose.model 'Recipe',
 	name: String
 	author: String
+	description: String
 	ingredients: [{
-		qty: Number,
+		qty: Number
 		description: String
 	}]

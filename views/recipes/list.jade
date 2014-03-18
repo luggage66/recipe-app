@@ -2,7 +2,10 @@ extends ../layout
 
 block content
 	.container
-		a(href='/recipes/create') New Recipe
+		a.btn.btn-primary(href='/recipes/create') New Recipe
+
+
 		ul
+			li: a(href='/recipes/sample') See Sample Recipe
 			for recipe in recipes
 				li: a(href='/recipes/' + recipe.id)= recipe.name

@@ -9,6 +9,21 @@ module.exports =
 
 	#lookup recipe by id and save it for  alter part of the request
 	lookup: (req, res, next, id) -> 
+		if id == 'sample'
+			req.recipe =
+				name: 'Sample Recipe'
+				author: 'Donald Mull Jr.'
+				ingredients: [
+					{ volume: '1 TBSP', ingredient: 'Cyanide' }
+					{ weight: '4 grams', ingredient: 'Arsenic' }
+				]
+				instructions: [
+					'mix arsenic and cyanide'
+					'give to enemies'
+				]
+			next()
+			return
+
 		db.Recipe.findById id, (err, recipe) ->
 			if err
 				next err
