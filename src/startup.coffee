@@ -3,8 +3,7 @@
 Module dependencies.
 ###
 express = require("express")
-routes = require("./routes")
-recipesRoutes = require("./recipesRoutes")
+setupRoutes = require("./routes")
 http = require("http")
 path = require("path")
 app = express()
@@ -26,14 +25,11 @@ app.use express.static(path.join(__dirname, "../public"))
 
 # development only
 app.use express.errorHandler()  if "development" is app.get("env")
-app.get '/', routes.index
 
-app.get '/recipes', recipesRoutes.list
-app.get '/recipes/create', recipesRoutes.create
-app.post '/recipes/create', recipesRoutes.save
-app.param ':recipeId', recipesRoutes.lookup
-app.get '/recipes/:recipeId', recipesRoutes.details
+#setup url -> function mappings
+setupRoutes(app)
 
+#start server
 http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")
   return

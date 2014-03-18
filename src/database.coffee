@@ -1,5 +1,7 @@
 mongoose = require 'mongoose'
-mongoose.connect 'mongodb://localhost/test'
+config = require '../config'
+
+mongoose.connect config.databaseConnectionString
 
 exports.Recipe = mongoose.model 'Recipe',
 	name: String
