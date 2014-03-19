@@ -9,7 +9,6 @@
 
 @import './bootstrap/bootstrap.less';
 
-
 .navbar-brand {
 	font-family: @headings-font-family;
 	font-weight: @headings-font-weight;
@@ -20,7 +19,19 @@
 	.label-primary();
 }
 
-.container.recipe {
+.recipe {
 	.box-shadow(0 6px 12px rgba(0,0,0,.175));
 	border: 1px solid @gray-lighter;
+}
+
+.layout-sidebar {
+	.make-row();
+
+	.layout-sidebar-sidebar {
+		.make-sm-column(5);
+	}
+
+	.layout-sidebar-body {
+		.make-sm-column(7);
+	}
 }

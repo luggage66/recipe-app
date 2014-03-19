@@ -1,27 +1,37 @@
 extends ../layout
 
 block content
-	.container.recipe
-		
-		a.button.btn.btn-primary(href='/recipes/edit/' + recipe.id) Edit
+	.container
+		.layout-sidebar
+			.layout-sidebar-body
+				.recipe
+					a.button.btn.btn-primary(href='/recipes/edit/' + recipe.id) Edit
 
-		h1
-			= recipe.name
-			small= ' by ' + recipe.author
+					h1
+						= recipe.name
+						small= ' by ' + recipe.author
 
-		if recipe.tags
-			for tag in recipe.tags
-				span.tag= tag
-				| 
+					if recipe.tags
+						for tag in recipe.tags
+							span.tag= tag
+							| 
 
-		h2 Ingredients
-		ul.ingredients
-			if recipe.ingredients
-				for i in recipe.ingredients
-					li= (i.volume || i.weight) + ' - ' + i.ingredient
+					h2 Ingredients
+					ul.ingredients
+						if recipe.ingredients
+							for i in recipe.ingredients
+								li= (i.volume || i.weight) + ' - ' + i.ingredient
 
-		h2 Instructions
-		ol.instructions
-			if recipe.instructions
-				for i in recipe.instructions
-					li= i
+					h2 Instructions
+					ol.instructions
+						if recipe.instructions
+							for i in recipe.instructions
+								li= i
+			.layout-sidebar-sidebar
+				ul.nav.nav-pills.nav-stacked
+					li.active: a(href='#') Recipe Details
+					li: a(href='#') History
+					li: a(href='#') Recipes like this
+
+	
+
