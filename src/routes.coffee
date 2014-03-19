@@ -12,3 +12,4 @@ module.exports = (app) ->
 	app.post '/recipes/create', recipes.save
 	app.param ':recipeId', recipes.lookup
 	app.get '/recipes/:recipeId', recipes.details
+	app.get '/recipes/edit/:recipeId', recipes.edit

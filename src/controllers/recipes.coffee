@@ -49,3 +49,6 @@ module.exports =
 				res.json data
 			else
 				res.redirect '/recipes'
+
+	edit: (req, res) ->
+		res.render 'recipes/edit', { recipe: req.recipe }

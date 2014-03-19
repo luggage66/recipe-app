@@ -3,9 +3,13 @@ extends ../layout
 block content
 	.container
 		
+		a.button.btn.btn-primary(href='/recipes/edit/' + recipe.id) Edit
+
 		h1
 			= recipe.name
 			small= ' by ' + recipe.author
+
+		= recipe.picture
 
 		ul.ingredients
 			for i in recipe.ingredients || []
