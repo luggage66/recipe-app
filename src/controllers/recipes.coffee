@@ -13,6 +13,11 @@ module.exports =
 			req.recipe =
 				name: 'Sample Recipe'
 				author: 'Donald Mull Jr.'
+				tags: [ 'tasty', 'do-not-eat' ]
+				links: [
+					{ type: 'parent', name: 'Some old recipe', author: 'Cavemen', uri: '/recipes/1' }
+					{ type: 'related', name: 'Ricin', author: 'Walter White', uri: '/recipes/2' }
+				]
 				ingredients: [
 					{ volume: '1 TBSP', ingredient: 'Cyanide' }
 					{ weight: '4 grams', ingredient: 'Arsenic' }

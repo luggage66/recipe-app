@@ -1,16 +1,25 @@
 extends ../layout
 
 block content
-	.container
+	.container.recipe
 		
 		h1
 			= recipe.name
 			small= ' by ' + recipe.author
 
-		ul.ingredients
-			for i in recipe.ingredients || []
-				li= (i.volume || i.weight) + ' - ' + i.ingredient
+		if recipe.tags
+			for tag in recipe.tags
+				span.tag= tag
+				| 
 
+		h2 Ingredients
+		ul.ingredients
+			if recipe.ingredients
+				for i in recipe.ingredients
+					li= (i.volume || i.weight) + ' - ' + i.ingredient
+
+		h2 Instructions
 		ol.instructions
-			for i in recipe.instructions || []
-				li= i
+			if recipe.instructions
+				for i in recipe.instructions
+					li= i
