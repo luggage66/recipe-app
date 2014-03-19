@@ -18,3 +18,4 @@ lib/
 
 var/*.db
 var/*.sqlite
+/mongodata
