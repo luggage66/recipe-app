@@ -53,7 +53,7 @@ module.exports =
 			if req.xhr #ajax
 				res.json data
 			else
-				res.redirect '/recipes'
+				res.redirect '/recipes/' + recipe.id
 
 	edit: (req, res) ->
 		res.render 'recipes/edit', { recipe: req.recipe }

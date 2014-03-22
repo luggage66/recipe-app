@@ -9,10 +9,10 @@ block navbar
 block content
 	.container
 		
-		ul.list-group.recipe-list
-			li.list-group-item
+		.recipe-list
+			.recipe
 				h2: a(href='/recipes/sample') Sample Recipe
 			for recipe in recipes
-				li.list-group-item
+				.recipe
 					h2: a(href='/recipes/' + recipe.id)= recipe.name
 					span.label.label-default tags

@@ -9,7 +9,7 @@ module.exports = (app) ->
 	#recipes
 	app.get '/recipes', recipes.list
 	app.get '/recipes/create', recipes.create
-	app.post '/recipes/create', recipes.save
+	app.post '/recipes/:recipeId', recipes.save
 	app.param ':recipeId', recipes.lookup
 	app.get '/recipes/:recipeId', recipes.details
-	app.get '/recipes/edit/:recipeId', recipes.edit
+	app.get '/recipes/:recipeId/edit', recipes.edit
