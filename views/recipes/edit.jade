@@ -2,17 +2,15 @@ extends ../layout
 
 block vars
 	- var backLink = '/recipes/' + recipe.id
-
-block navbar-nocollapse
-	ul.nav.navbar-nav.pull-right
-		li: button.btn.btn-success.navbar-btn(type='submit')
-				span.glyphicon.glyphicon-floppy-saved
-				|  Save
+	- var backLinkText = recipe.name
 
 block content
 	.container
 		form(method="post")
 			input.form-control(name="name", value=recipe.name)
+			button.btn.btn-success.navbar-btn(type='submit')
+				span.glyphicon.glyphicon-floppy-saved
+				|  Save
 
 	script
 		:coffeescript

@@ -1,5 +1,6 @@
 doctype html
 html
+	- applictionName = 'Some Recipe App'
 	block vars
 	head
 		title= title
@@ -17,13 +18,16 @@ html
 						span.icon-bar
 						span.icon-bar
 					if backLink
-						a.navbar-brand(href=backLink): span.glyphicon.glyphicon-chevron-left
+						a.navbar-brand(href=backLink)
+							span.glyphicon.glyphicon-chevron-left
+							|  
+							= (backLinkText ? backLinkText : 'Back')
 					else
-						a.navbar-brand(href="/") Some Recipe App
-
-				block navbar-nocollapse
+						a.navbar-brand(href="/")= applictionName
 
 				.collapse.navbar-collapse#siteNavBar
 					block navbar
+					ul.nav.navbar-nav.pull-right
+						li: a(href='#') Your Account
 
 		block content
