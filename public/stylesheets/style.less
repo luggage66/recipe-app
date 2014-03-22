@@ -9,6 +9,10 @@
 
 @import './bootstrap/bootstrap.less';
 
+body {
+	padding-top: 70px; //navbar height + it's bottom margin
+}
+
 .navbar-brand {
 	font-family: @headings-font-family;
 	font-weight: @headings-font-weight;
@@ -20,18 +24,19 @@
 }
 
 .recipe {
+	.panel-body();
 	.box-shadow(0 6px 12px rgba(0,0,0,.175));
 	border: 1px solid @gray-lighter;
 }
 
 .layout-sidebar {
-	.make-row();
-
-	.layout-sidebar-sidebar {
-		.make-sm-column(5);
-	}
+	.row();
 
 	.layout-sidebar-body {
-		.make-sm-column(7);
+		.make-md-column(10);
+	}
+
+	.layout-sidebar-sidebar {
+		.make-md-column(2);
 	}
 }

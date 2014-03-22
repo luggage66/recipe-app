@@ -1,12 +1,14 @@
 extends ../layout
 
+block navbar
+	ul.nav.navbar-nav
+		li: a(href='/recipes/edit/' + recipe.id) Edit
+
 block content
 	.container
 		.layout-sidebar
 			.layout-sidebar-body
 				.recipe
-					a.button.btn.btn-primary(href='/recipes/edit/' + recipe.id) Edit
-
 					h1
 						= recipe.name
 						small= ' by ' + recipe.author
