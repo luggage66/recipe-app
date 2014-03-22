@@ -1,11 +1,18 @@
 extends ../layout
 
+block navbar
+	ul.nav.navbar-nav
+		li: a(href='/recipes/create')
+				span.glyphicon.glyphicon-cutlery
+				|  Create new recipe
+
 block content
 	.container
-		a.btn.btn-primary(href='/recipes/create') New Recipe
-
-
-		ul
-			li: a(href='/recipes/sample') See Sample Recipe
+		
+		ul.list-group.recipe-list
+			li.list-group-item
+				h2: a(href='/recipes/sample') Sample Recipe
 			for recipe in recipes
-				li: a(href='/recipes/' + recipe.id)= recipe.name
+				li.list-group-item
+					h2: a(href='/recipes/' + recipe.id)= recipe.name
+					span.label.label-default tags

@@ -1,5 +1,6 @@
 doctype html
 html
+	block vars
 	head
 		title= title
 		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
@@ -15,12 +16,14 @@ html
 						span.icon-bar
 						span.icon-bar
 						span.icon-bar
-					a.navbar-brand(href="/") Some Recipe App
+					if backLink
+						a.navbar-brand(href=backLink): span.glyphicon.glyphicon-chevron-left
+					else
+						a.navbar-brand(href="/") Some Recipe App
+
+				block navbar-nocollapse
 
 				.collapse.navbar-collapse#siteNavBar
-					ul.nav.navbar-nav
-						li: a(href="/recipes") Recipes
-
 					block navbar
 
 		block content

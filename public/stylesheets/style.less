@@ -8,6 +8,7 @@
 @border-radius-base: 0;
 
 @import './bootstrap/bootstrap.less';
+//@import './bootstrap/theme.less';
 
 body {
 	padding-top: 70px; //navbar height + it's bottom margin
@@ -33,10 +34,14 @@ body {
 	.row();
 
 	.layout-sidebar-body {
+		.make-sm-column(9);
 		.make-md-column(10);
+		
 	}
 
 	.layout-sidebar-sidebar {
+		.make-sm-column(3);
 		.make-md-column(2);
+		
 	}
 }

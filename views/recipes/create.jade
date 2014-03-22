@@ -1,8 +1,21 @@
 extends ../layout
 
+block vars
+	- var backLink = '/recipes'
+
+block navbar-nocollapse
+	ul.nav.navbar-nav.pull-right
+		li: button.btn.btn-success.navbar-btn(type='submit')
+				span.glyphicon.glyphicon-floppy-saved
+				|  Save
 block content
 	.container
 		form(method="post")
 			input.form-control(name="name")
 			input.form-control(name="picture",type="file")
-			button.btn.btn-primary(type="submit") save
+
+	script
+		:coffeescript
+			$ ->
+				$('button').click ->
+					$('form').submit()
