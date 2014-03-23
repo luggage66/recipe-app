@@ -12,3 +12,8 @@ exports.Recipe = mongoose.model 'Recipe',
 		qty: Number
 		description: String
 	}]
+
+exports.User = mongoose.model 'User',
+	name: String
+	username: String
+	email: String

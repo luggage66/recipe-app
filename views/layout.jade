@@ -8,6 +8,7 @@ html
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		script(src='/scripts/jquery-2.1.0.min.js')
 		script(src='/scripts/knockout-latest.js')
+		script(src='/scripts/knockout.mapping-latest.js')
 		script(src='/scripts/bootstrap.min.js')
 	body
 		nav.navbar.navbar-inverse.navbar-fixed-top
@@ -28,6 +29,9 @@ html
 				.collapse.navbar-collapse#siteNavBar
 					block navbar
 					ul.nav.navbar-nav.navbar-right
-						li: a(href='#') Your Account
+						if user
+							li: a(href='/users/view') Your Account
+						else
+							li: a(href='/users/login') Login
 
 		block content

@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+	.container
+		form(method="post")
+			b='Email'
+			input.form-control(name="email")
+			button.btn.btn-success.navbar-btn(type='submit')
+				span.glyphicon.glyphicon-floppy-saved
+				|  Login
+		hr
+		a(href='/users/create') Create an Account
+
+	script
+		:coffeescript
+			$ ->
+				$('button').click ->
+					$('form').submit()
