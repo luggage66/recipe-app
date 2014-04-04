@@ -12,7 +12,8 @@
     "mongoose": "~3.8.8",
     "consolidate": "~0.10.0",
     "hogan.js": "~2.0.0",
-    "knockout": "~3.1.0"
+    "knockout": "~3.1.0",
+    "slug": "~0.4.2"
   },
   "devDependencies": {
     "coffee-script": "~1.7.1",

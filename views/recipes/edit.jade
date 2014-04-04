@@ -1,6 +1,7 @@
 extends ../layout
 
 block vars
+	- var recipe = recipeCommit.data
 	- var backLink = '/recipes/' + recipe.id
 	- var backLinkText = recipe.name
 

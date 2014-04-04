@@ -14,5 +14,5 @@ block content
 				h2: a(href='/recipes/sample') Sample Recipe
 			for recipe in recipes
 				.recipe
-					h2: a(href='/recipes/' + recipe.id)= recipe.name
+					h2: a(href='/recipes/' + recipe.id + '/' + slug(recipe.name))= recipe.name
 					span.label.label-default tags

@@ -10,10 +10,13 @@ module.exports = (app) ->
 	#recipes
 	app.get '/recipes', recipes.list
 	app.get '/recipes/create', recipes.create
+	app.post '/recipes/create', recipes.save
 	app.post '/recipes/:recipeId', recipes.save
-	app.param ':recipeId', recipes.lookup
-	app.get '/recipes/:recipeId', recipes.details
-	app.get '/recipes/:recipeId/edit', recipes.edit
+	app.param ':recipeRefId', recipes.lookupRef
+	app.get '/recipes/:recipeRefId', recipes.viewHead
+	app.get '/recipes/:recipeRefId/*', recipes.viewHead
+	# app.get '/recipes/:recipeId/edit', recipes.edit
+
 
 	#users
 	app.get '/users/login', users.login

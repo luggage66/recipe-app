@@ -22,6 +22,9 @@ app.use express.urlencoded()
 app.use express.methodOverride()
 app.use express.cookieParser("your secret here")
 app.use express.session()
+app.use (req, res, next) ->
+	res.locals.slug = require 'slug'
+	next()
 app.use app.router
 app.use require("less-middleware")(path.join(__dirname, "../public"))
 app.use express.static(path.join(__dirname, "../public"))
