@@ -13,10 +13,12 @@ module.exports = (app) ->
 	app.post '/recipes/create', recipes.save
 	app.post '/recipes/:recipeId', recipes.save
 	app.param ':recipeRefId', recipes.lookupRef
-	app.get '/recipes/:recipeRefId', recipes.viewHead
-	app.get '/recipes/:recipeRefId/*', recipes.viewHead
+	app.get '/recipes/:recipeRefId', recipes.details
+	app.get '/recipes/:recipeRefId/*', recipes.details
 	# app.get '/recipes/:recipeId/edit', recipes.edit
 
+	#api
+	app.use '/api/recipes', require './controllers/recipeApi'
 
 	#users
 	app.get '/users/login', users.login

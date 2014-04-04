@@ -1,6 +1,5 @@
 db = require '../database'
 async = require 'async'
-slug = require 'slug'
 
 getRefs = (done) ->
 	db.RecipeRef.find {}, (err, refs) ->
@@ -56,21 +55,8 @@ module.exports =
 		next()
 
 	lookupRef: (req, res, next, id) -> 
-		getRef id, (err, ref) ->
-			if err
-				next err
-			else
-				getCommit ref.head, (err, commit) ->
-					if err
-						next err
-					else
-						req.recipeCommit = commit
-						next()
-
-	# render view with the recipe that was found
-	details: (req, res) ->
-		console.log JSON.stringify req.recipeCommit, null, '\t'
-		res.render 'recipes/details2', { recipeCommit: req.recipeCommit }
+		req.refId = id;
+		next();
 
 	create: (req, res) ->
 		res.render 'recipes/create'
@@ -97,13 +83,8 @@ module.exports =
 				else
 					res.redirect '/recipes/' + result.id
 
-	branch: (req, res) ->
-
-	viewHead: (req, res) ->
-		res.render 'recipes/details', { recipeCommit: req.recipeCommit }
-
-	commit: (req, res) ->
-
+	details: (req, res) ->
+		res.render 'recipes/details', { refId: req.refId }
 
 	edit: (req, res) ->
 		console.log JSON.stringify req.recipeCommit, null, '\t'

@@ -3,42 +3,40 @@ extends ../layout
 block vars
 	- var backLink = '/recipes'
 	- var backLinkText = 'Search Results'
-	- var recipe = recipeCommit.data
 
 block navbar
 	ul.nav.navbar-nav
 		li: a(href='#') Fork! :)
 
+block scripts
+	script(src='/recipeDetails.js')
+	script.
+		$(function() {
+			viewModel.getData({ ref: '#{refId}' })
+				.done(function() {
+					ko.applyBindings(viewModel);
+				});
+		});
+
 block content
 	.container
 		.layout-sidebar
 			.layout-sidebar-body
-				.recipe
-					h1
-						= recipe.name
-						small= ' by ' + recipe.author
-
-					if recipe.tags
-						for tag in recipe.tags
-							span.tag= tag
-							| 
+				.recipe(data-bind="with: commit.data")
+					h1(data-bind="text: name")
 
 					h2 Ingredients
-					ul.ingredients
-						if recipe.ingredients
-							for i in recipe.ingredients
-								li= (i.volume || i.weight) + ' - ' + i.ingredient
+					ul.ingredients(data-bind="foreach: ingredients")
+						li(data-bind="text: description")
 
 					h2 Instructions
-					ol.instructions
-						if recipe.instructions
-							for i in recipe.instructions
-								li= i
+					ol.instructions(data-bind="foreach: steps")
+						li(data-bind="text: body")
 			.layout-sidebar-sidebar
 				ul.nav.nav-pills.nav-stacked
 					li.active: a(href='#') Recipe Details
-					li: a(href='/recipes/' + recipeCommit.id + '/edit') Edit
+					li: a(href='#', data-bind="click: edit, disable: editing") Edit
 
-		pre= JSON.stringify(recipeCommit, 1, '\t')
+		pre(data-bind="text: JSON.stringify(commit, 1, '\t')")
 	
 
